@@ -62,10 +62,26 @@ data:
 ---
 ```
 
-## Build Result
+#### Build Result
 
 ![CodeBuild Result](https://github.com/ashchang/gama-hw/blob/main/codebuild-result.png)
 
-## Final Result
+#### Final Result
 
 ![Final Result](https://github.com/ashchang/gama-hw/blob/main/final-result.png)
+
+---
+
+## About Q5 & Q6
+---
+Q5:
+
+以目前的Q4提供的提供的「簡單的CI/CD pipeline」是除了CI part build image那段以外, CD的部分全部都要打掉重做, 可以使用ARGOCD來達成, ARGOCD可以自動去掃repo的image變更然後deploy甚至回寫版號
+CI那邊需要做的調整是 在gitlab, github上針對題目所述的特定Branch去觸發CI流程打包image然後push到image repository即可;
+
+根據以前實作這段的經驗 RD 從feature branch開merge request 到dev後, 就會觸發unittest, 合併後則會觸發image packaging的動作, push到ECR後, argocd掃到有新的image被推上去後就會抓下來自己deploy到各環境,
+
+如果是prd環境的話 argocd可以把autosync關掉改為人工去deploy
+
+Q6:
+我認為要識別是否為terraform建立的資源可以透過aws tags去實踐, 這點可以針對需求再進一步討論
