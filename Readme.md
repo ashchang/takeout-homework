@@ -62,7 +62,9 @@ data:
 ---
 
 ## Build Result
+
 ![CodeBuild Result](https://github.com/ashchang/gama-hw/blob/main/codebuild-result.png)
 
 ## Final Result
+
 ![Final Result](https://github.com/ashchang/gama-hw/blob/main/final-result.png)
