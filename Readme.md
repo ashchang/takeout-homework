@@ -28,7 +28,9 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm install nginx-ingress-controller ingress-nginx/ingress-nginx -f nginx-value.yaml
 ```
-nginx-ingress-controller 建立完成後 svc 那邊顯示的load balancer endpoint請幫我update到ingress.yaml內的spec.rules[0].host, 替換掉這邊的值
+nginx-ingress-controller 建立完成後 svc 那邊顯示的load balancer 
+
+的 endpoint請幫我update到ingress.yaml內的spec.rules[0].host, 替換掉這邊的值
 ```shell
 kubectl apply -f ingress.yaml
 ```
