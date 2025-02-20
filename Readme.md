@@ -1,4 +1,4 @@
-## Install Terraform
+### Install Terraform
 ---
 
 dir: /terraform/eks/
@@ -11,15 +11,17 @@ terraform apply
 aws eks --region us-east-1 update-kubeconfig --name test --profile ${profile}
 ```
 
-dir /helm/
+### Install App
+---
+dir: /helm/
 
 ```shell
 helm install nginx . -f values.yaml
 helm install nginx . -f 
 ```
 
-## install nginx controller and ingress
-dir /
+### Install nginx controller and ingress
+dir: /
 
 ```shell
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -31,7 +33,12 @@ nginx-ingress-controller 建立完成後 svc 那邊顯示的load balancer endpoi
 kubectl apply -f ingress.yaml
 ```
 
-## codebuild access k8s權限
+### Kubernetes allow codebuild access
+---
+這邊使用的docker image存放目錄是我自己個人的 
+
+terraform variables.tf內有兩個變數是DOCKER_USER & DOCKER_PASS請替換為自己的
+
 ```shell
 kubectl edit -n kube-system configmap/aws-auth
 ```
