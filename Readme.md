@@ -55,8 +55,8 @@ data:
       - system:nodes
       rolearn: arn:aws:iam::{AWS_ACCOUNT}:role/{ROLE_NAME}
       username: system:node:{{EC2PrivateDNSName}}
-    - rolearn: arn:aws:iam::{AWS_ACCOUNT}:role/example  # 幫我新增這幾行, role default我使用example
-      username: example                                 #
+    - rolearn: arn:aws:iam::{AWS_ACCOUNT}:role/example  # 幫我新增這幾行, 
+      username: example                                 # role default我使用example
       groups:                                           #
       - system:masters                                  #
 ---
