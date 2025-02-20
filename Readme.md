@@ -61,8 +61,8 @@ data:
       - system:masters                                  #
 ---
 
-##### Build Result
-<img src="codebuild-result.png" width="800" alt="CodeBuild Result">
+## Build Result
+![CodeBuild Result](codebuild-result.png)
 
-##### Final Result
-<img src="final-result.png" width="800" alt="Final Result">
+## Final Result
+![Final Result](final-result.png)
