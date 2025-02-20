@@ -2,36 +2,41 @@
 ---
 
 dir: /terraform/eks/
-
+```shell
 terraform init
 terraform apply
-
+```
 如果要分批 先建立vpc > iam & eks & alb_controller > codebuild
-
+```shell
 aws eks --region us-east-1 update-kubeconfig --name test --profile ${profile}
-
+```
 
 dir /helm/
 
+```shell
 helm install nginx . -f values.yaml
 helm install nginx . -f 
-
+```
 
 ## install nginx controller and ingress
 dir /
 
+```shell
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm install nginx-ingress-controller ingress-nginx/ingress-nginx -f nginx-value.yaml
-
+```
 nginx-ingress-controller 建立完成後 svc 那邊顯示的load balancer endpoint請幫我update到ingress.yaml內的spec.rules[0].host, 替換掉這邊的值
-
+```shell
 kubectl apply -f ingress.yaml
-
+```
 
 ## codebuild access k8s權限
+```shell
 kubectl edit -n kube-system configmap/aws-auth
+```
 
+```yaml
 ---
 apiVersion: v1
 data:
