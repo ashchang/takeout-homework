@@ -1,0 +1,20 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-sre
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "ab3a315eb4df54729a22e3b8bd92fc74-1261386461.us-east-1.elb.amazonaws.com"
+    http:
+      paths:
+      - path: /(.*) 
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: "nginx-helm"
+            port:
+              number: 80

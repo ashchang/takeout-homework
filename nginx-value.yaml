@@ -1,0 +1,14 @@
+controller:
+  replicaCount: 1
+  config: 
+    # proxy-real-ip-cidr: "10.11.104.0/21" #workload vpc
+    real-ip-header: "X-Forwarded-For"
+    real-ip-recursive: "true"
+    log-format-upstream: '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for" "$http_cf_connecting_ip"'
+  service:
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+      service.beta.kubernetes.io/aws-load-balancer-name: "test-public-nlb"
+      service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+      service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "instance"
+      #service.beta.kubernetes.io/aws-load-balancer-security-groups: "st-prod-ano-eks-internal-nlb-sg"
