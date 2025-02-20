@@ -60,3 +60,9 @@ data:
       groups:                                           #
       - system:masters                                  #
 ---
+
+##### Build Result
+<img src="codebuild-result.png" width="800" alt="CodeBuild Result">
+
+##### Final Result
+<img src="final-result.png" width="800" alt="Final Result">
