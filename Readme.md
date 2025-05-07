@@ -71,3 +71,5 @@ data:
 ![Final Result](https://github.com/ashchang/gama-hw/blob/main/final-result.png)
 
 ---
+
+可公開的部分如上, 有些做法正式在做的時候, 我會有其他更好的做法
